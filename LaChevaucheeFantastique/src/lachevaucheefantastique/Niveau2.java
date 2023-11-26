@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package lachevaucheefantastique;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,48 +11,53 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author ogues
+ * @author leafr
  */
 
-public class Niveau1 extends JFrame {
+public class Niveau2 extends JFrame {
+
     private JButton[][] boutons;
     private int chevalierX, chevalierY;
 
-    public Niveau1() {
-        //Affichage de la fenêtre
-        setTitle("Chess Knight Moves"); 
-        setSize(300, 300);
+    public Niveau2() {
+        super();
+        // Affichage de la fenêtre
+        setTitle("Chess Knight Moves - Niveau 2");
+        setSize(400, 400); // Ajustez la taille selon vos besoins
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridLayout(3, 3));
+        setLayout(new GridLayout(4, 4));
 
-        //Niveau 1
-        boutons = new JButton[3][3]; // fenêtre de boutons en 3x3
-        chevalierX = 2; //Position initiale en bas
-        chevalierY = 0; //Position initiale à gauche
+        // Niveau 2
+        boutons = new JButton[4][4]; // fenêtre de boutons en 4x4
+        chevalierX = 3; // Position initiale en bas
+        chevalierY = 0; // Position initiale à gauche
 
-        initialisergrille();
+        initialiserGrilleNiveau2();
         deplacement();
 
         setVisible(true);
     }
 
-    private void initialisergrille() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+    private void initialiserGrilleNiveau2() {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
                 boutons[i][j] = new JButton();
                 boutons[i][j].setBackground(Color.GRAY);
                 boutons[i][j].addActionListener(new ButtonClickListener(i, j));
                 add(boutons[i][j]);
             }
         }
-        // Initialisation de quelques cases allumées - LVL 1
+        // Initialisation de quelques cases allumées - LVL 2
         boutons[0][1].setBackground(Color.YELLOW);
         boutons[2][2].setBackground(Color.YELLOW);
+        boutons[3][3].setBackground(Color.YELLOW);
+        boutons[2][0].setBackground(Color.YELLOW);
+        boutons[1][2].setBackground(Color.YELLOW);
     }
 
     private void deplacement() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
                 if (i == chevalierX && j == chevalierY) {
                     boutons[i][j].setText("♞");
                 } else {
@@ -61,27 +67,8 @@ public class Niveau1 extends JFrame {
         }
     }
 
-    private void verifvictoire() {
-        boolean touteteint = true;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (boutons[i][j].getBackground() == Color.YELLOW) {
-                    touteteint = false;
-                    break;
-                }
-            }
-            if (!touteteint) {
-                break;
-            }
-        }
-
-        if (touteteint) {
-            setVisible(false);
-            new FenetreVictoire().setVisible(true);
-        }
-    }
-
     private class ButtonClickListener implements ActionListener {
+
         private int x, y;
 
         public ButtonClickListener(int x, int y) {
@@ -91,17 +78,17 @@ public class Niveau1 extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (possibledeplacement(x, y)) {
-                chevalierX = x; //déplace le chevalier sur la coordonnée X
-                chevalierY = y; //déplace le chevalier sur la coordonnée Y
+            if (possibleDeplacement(x, y)) {
+                chevalierX = x;
+                chevalierY = y;
                 boutons[x][y].setBackground(
                         boutons[x][y].getBackground() == Color.YELLOW ? Color.GRAY : Color.YELLOW
                 );
                 deplacement();
-                verifvictoire();
+                verifVictoire();
             } else {
                 JOptionPane.showMessageDialog(
-                        Niveau1.this,
+                        Niveau2.this,
                         "Mouvement impossible ou case grise",
                         "Erreur",
                         JOptionPane.ERROR_MESSAGE
@@ -109,7 +96,7 @@ public class Niveau1 extends JFrame {
             }
         }
 
-        private boolean possibledeplacement(int newX, int newY) {
+        private boolean possibleDeplacement(int newX, int newY) {
             int dx = newX - chevalierX;
             int dy = newY - chevalierY;
 
@@ -122,10 +109,27 @@ public class Niveau1 extends JFrame {
         }
     }
 
-    
+    private void verifVictoire() {
+        boolean toutEteint = true;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (boutons[i][j].getBackground() == Color.YELLOW) {
+                    toutEteint = false;
+                    break;
+                }
+            }
+            if (!toutEteint) {
+                break;
+            }
+        }
+
+        if (toutEteint) {
+            setVisible(false);
+            new FenetreVictoire2().setVisible(true);
+        }
+    }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Niveau1());
+        SwingUtilities.invokeLater(() -> new Niveau2());
     }
 }
-
