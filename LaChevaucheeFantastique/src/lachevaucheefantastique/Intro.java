@@ -25,7 +25,7 @@ public class Intro extends javax.swing.JFrame {
         Commencer.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new Niveau1();
+                new Niveau1graph();
             
             }
         });
