@@ -15,8 +15,8 @@ import java.awt.event.ActionListener;
  */
 public class Niveau1graph extends JFrame {
 
-    private JButton[][] boutons;
-    private int chevalierX, chevalierY;
+    private final JButton[][] boutons;
+    private int cavalierX, cavalierY;
 
     public Niveau1graph() {
         initComponents();
@@ -25,46 +25,40 @@ public class Niveau1graph extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
-
         JPanel mainPanel = new JPanel(new GridLayout(3, 3));
         boutons = new JButton[3][3];
-        chevalierX = 2;
-        chevalierY = 0;
+        cavalierX = 2;
+        cavalierY = 0;
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 boutons[i][j] = new JButton();
                 boutons[i][j].setBackground(Color.GRAY);
-                boutons[i][j].setPreferredSize(new Dimension(70, 70));
+                boutons[i][j].setPreferredSize(new Dimension(0, 70));
                 boutons[i][j].addActionListener(new ButtonClickListener(i, j));
 
                 mainPanel.add(boutons[i][j]);
-            }
+                }
         }
 
         boutons[0][1].setBackground(Color.YELLOW);
         boutons[2][2].setBackground(Color.YELLOW);
 
-        boutons[chevalierX][chevalierY].setText("♞");
+        boutons[cavalierX][cavalierY].setText("♞");
 
         JButton abandonnerButton = new JButton("Abandonner");
-        abandonnerButton.addActionListener(e -> abandonnerPartie());
 
         add(mainPanel, BorderLayout.CENTER);
         add(abandonnerButton, BorderLayout.SOUTH);
-
-        pack();
-        setVisible(true);
     }
 
     private void deplacement() {
         for (JButton[] ligne : boutons) {
             for (JButton bouton : ligne) {
-                bouton.setText(bouton == boutons[chevalierX][chevalierY] ? "♞" : "");
+                bouton.setText(bouton == boutons[cavalierX][cavalierY] ? "♞" : "");
             }
         }
         revalidate();
-        repaint();
     }
 
     private void verifVictoire() {
@@ -98,10 +92,10 @@ public class Niveau1graph extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (possibleDeplacement(x, y)) {
-                chevalierX = x;
-                chevalierY = y;
-                boutons[chevalierX][chevalierY].setBackground(
-                        boutons[chevalierX][chevalierY].getBackground() == Color.YELLOW ? Color.GRAY : Color.YELLOW
+                cavalierX = x;
+                cavalierY = y;
+                boutons[cavalierX][cavalierY].setBackground(
+                        boutons[cavalierX][cavalierY].getBackground() == Color.YELLOW ? Color.GRAY : Color.YELLOW
                 );
                 deplacement();
                 verifVictoire();
@@ -116,19 +110,14 @@ public class Niveau1graph extends JFrame {
         }
 
         private boolean possibleDeplacement(int newX, int newY) {
-            int dx = newX - chevalierX;
-            int dy = newY - chevalierY;
+            int dx = newX - cavalierX;
+            int dy = newY - cavalierY;
 
             if (boutons[newX][newY].getBackground() != Color.YELLOW) {
-                System.out.println("Erreur : Case non jaune");
                 return false;
             }
 
             boolean isPossible = (dx == 1 || dx == -1) && (dy == 2 || dy == -2) || (dx == 2 || dx == -2) && (dy == 1 || dy == -1);
-            if (!isPossible) {
-                System.out.println("Erreur : Mouvement impossible");
-            }
-
             return isPossible;
         }
     }
