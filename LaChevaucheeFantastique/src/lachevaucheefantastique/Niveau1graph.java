@@ -20,8 +20,11 @@ public class Niveau1graph extends JFrame {
 
     public Niveau1graph() {
         initComponents();
+        setTitle("Niveau 1"); 
         setSize(300, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+
 
         JPanel mainPanel = new JPanel(new GridLayout(3, 3));
         boutons = new JButton[3][3];
