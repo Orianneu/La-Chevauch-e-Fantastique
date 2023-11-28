@@ -13,45 +13,54 @@ import java.awt.event.ActionListener;
  *
  * @author leafr
  */
-public class Niveau3graph extends JFrame {
+public class Niveau4graph extends JFrame {
 
     private final JButton[][] boutons;
     private int cavalierX, cavalierY;
 
-    public Niveau3graph() {
+    public Niveau4graph() {
         initComponents();
-        setTitle("Niveau 3"); 
+        setTitle("Niveau 4");
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
-        JPanel mainPanel = new JPanel(new GridLayout(5, 5));
-        boutons = new JButton[5][5];
-        cavalierX = 4; //Position de départ
-        cavalierY = 0;
+        JPanel mainPanel = new JPanel(new GridLayout(8, 8));
+        boutons = new JButton[8][8];
+        cavalierX = 0; //Position de départ
+        cavalierY = 7;
 
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
                 boutons[i][j] = new JButton();
                 boutons[i][j].setBackground(Color.GRAY);
                 boutons[i][j].setPreferredSize(new Dimension(0, 70));
                 boutons[i][j].addActionListener(new ButtonClickListener(i, j));
 
                 mainPanel.add(boutons[i][j]);
-                }
+            }
         }
 
         // Initialisation de quelques cases allumées - LVL 3
-        boutons[0][2].setBackground(Color.YELLOW);
-        boutons[2][3].setBackground(Color.YELLOW);
-        boutons[2][2].setBackground(Color.YELLOW);
-        boutons[3][3].setBackground(Color.YELLOW);
-        boutons[1][0].setBackground(Color.YELLOW);
-        boutons[0][3].setBackground(Color.YELLOW);
-        boutons[2][1].setBackground(Color.YELLOW);
-        boutons[1][2].setBackground(Color.YELLOW);
+        boutons[0][5].setBackground(Color.YELLOW);
         boutons[2][4].setBackground(Color.YELLOW);
-        boutons[0][4].setBackground(Color.YELLOW);
+        boutons[3][0].setBackground(Color.YELLOW);
+        boutons[6][0].setBackground(Color.YELLOW);
+        boutons[7][0].setBackground(Color.YELLOW);
+        boutons[1][1].setBackground(Color.YELLOW);
+        boutons[4][1].setBackground(Color.YELLOW);
+        boutons[6][5].setBackground(Color.YELLOW);
+        boutons[3][2].setBackground(Color.YELLOW);
+        boutons[6][2].setBackground(Color.YELLOW);
+        boutons[4][4].setBackground(Color.YELLOW);
+        boutons[4][1].setBackground(Color.YELLOW);
+        boutons[7][2].setBackground(Color.YELLOW);
+        boutons[5][3].setBackground(Color.YELLOW);
+        boutons[2][6].setBackground(Color.YELLOW);
+        boutons[5][1].setBackground(Color.YELLOW);
+        boutons[3][6].setBackground(Color.YELLOW);
+        boutons[0][5].setBackground(Color.YELLOW);
+       
 
         boutons[cavalierX][cavalierY].setText("♞");
 
@@ -86,11 +95,12 @@ public class Niveau3graph extends JFrame {
 
         if (toutEteint) {
             setVisible(false);
-            new FenetreVictoire3().setVisible(true); //// A CHANGER POUR FENETRE VICTOIRE 4
+            new FenetreVictoire4().setVisible(true); //// A CHANGER POUR FENETRE VICTOIRE 4
         }
     }
 
     private class ButtonClickListener implements ActionListener {
+
         private int x, y;
 
         public ButtonClickListener(int x, int y) {
@@ -109,7 +119,7 @@ public class Niveau3graph extends JFrame {
                 deplacement();
                 verifVictoire();
             } else {
-                JOptionPane.showMessageDialog(Niveau3graph.this,
+                JOptionPane.showMessageDialog(Niveau4graph.this,
                         "Mouvement impossible ou case grise",
                         "Erreur",
                         JOptionPane.ERROR_MESSAGE
@@ -134,8 +144,6 @@ public class Niveau3graph extends JFrame {
         setVisible(false);
         new FenetrePerdu().setVisible(true);
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -199,21 +207,69 @@ public class Niveau3graph extends JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Niveau3graph.class
+            java.util.logging.Logger.getLogger(Niveau4graph.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Niveau3graph.class
+            java.util.logging.Logger.getLogger(Niveau4graph.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Niveau3graph.class
+            java.util.logging.Logger.getLogger(Niveau4graph.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Niveau3graph.class
+            java.util.logging.Logger.getLogger(Niveau4graph.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -234,7 +290,7 @@ public class Niveau3graph extends JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Niveau3graph().setVisible(true);
+                new Niveau4graph().setVisible(true);
             }
         });
     }

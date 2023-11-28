@@ -12,12 +12,12 @@ import javax.swing.SwingUtilities;
  *
  * @author leafr
  */
-public class FenetreVictoire3 extends javax.swing.JFrame {
+public class FenetreVictoire4 extends javax.swing.JFrame {
 
     /**
      * Creates new form FenetreVictoire
      */
-    public FenetreVictoire3() {
+    public FenetreVictoire4() {
         initComponents();
 
     }
@@ -89,11 +89,11 @@ public class FenetreVictoire3 extends javax.swing.JFrame {
         Continuer.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new Niveau4graph();
+                new Niveau5graph();
             
             }
         });
-        SwingUtilities.invokeLater(() -> new Niveau4graph());
+        SwingUtilities.invokeLater(() -> new Niveau5graph());
     }//GEN-LAST:event_ContinuerActionPerformed
 
     /**
@@ -113,14 +113,18 @@ public class FenetreVictoire3 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FenetreVictoire3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreVictoire4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FenetreVictoire3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreVictoire4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FenetreVictoire3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreVictoire4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FenetreVictoire3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreVictoire4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -129,7 +133,7 @@ public class FenetreVictoire3 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenetreVictoire3().setVisible(true);
+                new FenetreVictoire4().setVisible(true);
             }
         });
     }

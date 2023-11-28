@@ -13,52 +13,81 @@ import java.awt.event.ActionListener;
  *
  * @author leafr
  */
-public class Niveau3graph extends JFrame {
+public class Niveau5graph extends JFrame {
 
     private final JButton[][] boutons;
     private int cavalierX, cavalierY;
 
-    public Niveau3graph() {
+    // Ajout d'un état pour les cases (0: Gris, 1: Jaune, 2: Orange)
+    private final int[][] etatsCases;
+
+    public Niveau5graph() {
         initComponents();
-        setTitle("Niveau 3"); 
+        setTitle("Niveau 5");
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
-        JPanel mainPanel = new JPanel(new GridLayout(5, 5));
-        boutons = new JButton[5][5];
-        cavalierX = 4; //Position de départ
-        cavalierY = 0;
+        JPanel mainPanel = new JPanel(new GridLayout(6, 6));
+        boutons = new JButton[6][6];
+        etatsCases = new int[6][6];
+        cavalierX = 5; // Position de départ
+        cavalierY = 5;
 
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
                 boutons[i][j] = new JButton();
                 boutons[i][j].setBackground(Color.GRAY);
                 boutons[i][j].setPreferredSize(new Dimension(0, 70));
                 boutons[i][j].addActionListener(new ButtonClickListener(i, j));
 
+                etatsCases[i][j] = 0; // Toutes les cases commencent en gris
+
                 mainPanel.add(boutons[i][j]);
-                }
+            }
         }
 
-        // Initialisation de quelques cases allumées - LVL 3
-        boutons[0][2].setBackground(Color.YELLOW);
-        boutons[2][3].setBackground(Color.YELLOW);
-        boutons[2][2].setBackground(Color.YELLOW);
-        boutons[3][3].setBackground(Color.YELLOW);
-        boutons[1][0].setBackground(Color.YELLOW);
-        boutons[0][3].setBackground(Color.YELLOW);
-        boutons[2][1].setBackground(Color.YELLOW);
-        boutons[1][2].setBackground(Color.YELLOW);
-        boutons[2][4].setBackground(Color.YELLOW);
-        boutons[0][4].setBackground(Color.YELLOW);
+        // Nouvelle configuration de cases allumées - LVL 5
+        etatsCases[0][3] = 1;
+        etatsCases[1][1] = 1;
+        etatsCases[1][5] = 1;
+        etatsCases[2][3] = 1;
+        etatsCases[2][4] = 2;
+        etatsCases[3][0] = 2;
+        etatsCases[3][2] = 2;
+        etatsCases[4][2] = 1;
+        etatsCases[4][3] = 2;
+        etatsCases[5][0] = 2;
+        etatsCases[5][1] = 2;
+
+        miseAJourCouleurCases();
 
         boutons[cavalierX][cavalierY].setText("♞");
 
         JButton abandonnerButton = new JButton("Abandonner");
+        
 
         add(mainPanel, BorderLayout.CENTER);
         add(abandonnerButton, BorderLayout.SOUTH);
+        
+    }
+
+    private void miseAJourCouleurCases() {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j <6; j++) {
+                switch (etatsCases[i][j]) {
+                    case 0:
+                        boutons[i][j].setBackground(Color.GRAY);
+                        break;
+                    case 1:
+                        boutons[i][j].setBackground(Color.YELLOW);
+                        break;
+                    case 2:
+                        boutons[i][j].setBackground(Color.ORANGE);
+                        break;
+                }
+            }
+        }
     }
 
     private void deplacement() {
@@ -71,24 +100,27 @@ public class Niveau3graph extends JFrame {
     }
 
     private void verifVictoire() {
-        boolean toutEteint = true;
-        for (JButton[] ligne : boutons) {
-            for (JButton bouton : ligne) {
-                if (bouton.getBackground() == Color.YELLOW) {
-                    toutEteint = false;
-                    break;
-                }
-            }
-            if (!toutEteint) {
+    boolean resteGris = false;
+    for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 6; j++) {
+            if (etatsCases[i][j] == 0) {
+                resteGris = true;
                 break;
             }
         }
-
-        if (toutEteint) {
-            setVisible(false);
-            new FenetreVictoire3().setVisible(true); //// A CHANGER POUR FENETRE VICTOIRE 4
+        if (resteGris) {
+            break;
         }
     }
+
+    if (!resteGris) {
+        setVisible(false);
+        new FenetreVictoire5().setVisible(true);
+    }
+
+
+}
+
 
     private class ButtonClickListener implements ActionListener {
         private int x, y;
@@ -103,13 +135,19 @@ public class Niveau3graph extends JFrame {
             if (possibleDeplacement(x, y)) {
                 cavalierX = x;
                 cavalierY = y;
-                boutons[cavalierX][cavalierY].setBackground(
-                        boutons[cavalierX][cavalierY].getBackground() == Color.YELLOW ? Color.GRAY : Color.YELLOW
-                );
+
+                // Gérer les états des cases lors du passage du chevalier
+                if (etatsCases[x][y] == 1) {
+                    etatsCases[x][y] = 2; // Passage 1 : Jaune -> Orange
+                } else if (etatsCases[x][y] == 2) {
+                    etatsCases[x][y] = 0; // Passage 2 : Orange -> Gris
+                }
+
+                miseAJourCouleurCases();
                 deplacement();
                 verifVictoire();
             } else {
-                JOptionPane.showMessageDialog(Niveau3graph.this,
+                JOptionPane.showMessageDialog(Niveau5graph.this,
                         "Mouvement impossible ou case grise",
                         "Erreur",
                         JOptionPane.ERROR_MESSAGE
@@ -118,22 +156,27 @@ public class Niveau3graph extends JFrame {
         }
 
         private boolean possibleDeplacement(int newX, int newY) {
-            int dx = newX - cavalierX;
-            int dy = newY - cavalierY;
+    int dx = newX - cavalierX;
+    int dy = newY - cavalierY;
 
-            if (boutons[newX][newY].getBackground() != Color.YELLOW) {
-                return false;
-            }
+    // Vérifie si la case est jaune ou orange
+    if (etatsCases[newX][newY] != 1 && etatsCases[newX][newY] != 2) {
+        return false;
+    }
 
-            boolean isPossible = (dx == 1 || dx == -1) && (dy == 2 || dy == -2) || (dx == 2 || dx == -2) && (dy == 1 || dy == -1);
-            return isPossible;
-        }
+    boolean isPossible = (dx == 1 || dx == -1) && (dy == 2 || dy == -2) || (dx == 2 || dx == -2) && (dy == 1 || dy == -1);
+    return isPossible;
+}
+
     }
 
     private void abandonnerPartie() {
         setVisible(false);
         new FenetrePerdu().setVisible(true);
     }
+
+
+    
 
     
 
@@ -199,21 +242,37 @@ public class Niveau3graph extends JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Niveau3graph.class
+            java.util.logging.Logger.getLogger(Niveau5graph.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Niveau3graph.class
+            java.util.logging.Logger.getLogger(Niveau5graph.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Niveau3graph.class
+            java.util.logging.Logger.getLogger(Niveau5graph.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Niveau3graph.class
+            java.util.logging.Logger.getLogger(Niveau5graph.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -234,7 +293,7 @@ public class Niveau3graph extends JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Niveau3graph().setVisible(true);
+                new Niveau5graph().setVisible(true);
             }
         });
     }
