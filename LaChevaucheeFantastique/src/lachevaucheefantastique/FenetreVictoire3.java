@@ -12,15 +12,13 @@ import javax.swing.SwingUtilities;
  *
  * @author leafr
  */
-public class FenetreVictoire extends javax.swing.JFrame {
+public class FenetreVictoire3 extends javax.swing.JFrame {
 
     /**
      * Creates new form FenetreVictoire
      */
-    public FenetreVictoire() {
+    public FenetreVictoire3() {
         initComponents();
-    
-
 
     }
 
@@ -41,7 +39,8 @@ public class FenetreVictoire extends javax.swing.JFrame {
         image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(610, 410));
+        setMinimumSize(new java.awt.Dimension(610, 410));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
@@ -90,11 +89,11 @@ public class FenetreVictoire extends javax.swing.JFrame {
         Continuer.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new Niveau2graph();
+                new Niveau3graph();
             
             }
         });
-        SwingUtilities.invokeLater(() -> new Niveau2graph());
+        SwingUtilities.invokeLater(() -> new Niveau3graph());
     }//GEN-LAST:event_ContinuerActionPerformed
 
     /**
@@ -114,20 +113,23 @@ public class FenetreVictoire extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FenetreVictoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreVictoire3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FenetreVictoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreVictoire3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FenetreVictoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreVictoire3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FenetreVictoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreVictoire3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenetreVictoire().setVisible(true);
+                new FenetreVictoire3().setVisible(true);
             }
         });
     }

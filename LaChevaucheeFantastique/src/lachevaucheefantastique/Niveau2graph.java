@@ -13,25 +13,25 @@ import java.awt.event.ActionListener;
  *
  * @author leafr
  */
-public class Niveau1graph extends JFrame {
+public class Niveau2graph extends JFrame {
 
     private final JButton[][] boutons;
     private int cavalierX, cavalierY;
 
-    public Niveau1graph() {
+    public Niveau2graph() {
         initComponents();
-        setTitle("Niveau 1"); 
-        setSize(300, 300);
+        setTitle("Niveau 2"); 
+        setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
-        JPanel mainPanel = new JPanel(new GridLayout(3, 3));
-        boutons = new JButton[3][3];
-        cavalierX = 2;
+        JPanel mainPanel = new JPanel(new GridLayout(4, 4));
+        boutons = new JButton[4][4];
+        cavalierX = 0; //Position de départ
         cavalierY = 0;
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
                 boutons[i][j] = new JButton();
                 boutons[i][j].setBackground(Color.GRAY);
                 boutons[i][j].setPreferredSize(new Dimension(0, 70));
@@ -41,8 +41,12 @@ public class Niveau1graph extends JFrame {
                 }
         }
 
+        // Initialisation de quelques cases allumées - LVL 2
         boutons[0][1].setBackground(Color.YELLOW);
         boutons[2][2].setBackground(Color.YELLOW);
+        boutons[0][3].setBackground(Color.YELLOW);
+        boutons[2][0].setBackground(Color.YELLOW);
+        boutons[1][2].setBackground(Color.YELLOW);
 
         boutons[cavalierX][cavalierY].setText("♞");
 
@@ -77,7 +81,7 @@ public class Niveau1graph extends JFrame {
 
         if (toutEteint) {
             setVisible(false);
-            new FenetreVictoire().setVisible(true);
+            new FenetreVictoire2().setVisible(true);
         }
     }
 
@@ -100,8 +104,7 @@ public class Niveau1graph extends JFrame {
                 deplacement();
                 verifVictoire();
             } else {
-                JOptionPane.showMessageDialog(
-                        Niveau1graph.this,
+                JOptionPane.showMessageDialog(Niveau2graph.this,
                         "Mouvement impossible ou case grise",
                         "Erreur",
                         JOptionPane.ERROR_MESSAGE
@@ -149,11 +152,11 @@ public class Niveau1graph extends JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 632, Short.MAX_VALUE)
+            .addGap(0, 437, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGap(0, 595, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -191,28 +194,34 @@ public class Niveau1graph extends JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Niveau1graph.class
+            java.util.logging.Logger.getLogger(Niveau2graph.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Niveau1graph.class
+            java.util.logging.Logger.getLogger(Niveau2graph.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Niveau1graph.class
+            java.util.logging.Logger.getLogger(Niveau2graph.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Niveau1graph.class
+            java.util.logging.Logger.getLogger(Niveau2graph.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Niveau1graph().setVisible(true);
+                new Niveau2graph().setVisible(true);
             }
         });
     }

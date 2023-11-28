@@ -4,6 +4,8 @@
  */
 package lachevaucheefantastique;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
 
 /**
@@ -85,9 +87,14 @@ public class FenetreVictoire2 extends javax.swing.JFrame {
 
     private void ContinuerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinuerActionPerformed
         this.dispose();
-        this.dispose();
-        // Ouvrir la nouvelle fenêtre (Niveau3) en passant l'instance de FenetreVictoire2
-        SwingUtilities.invokeLater(() -> new Niveau3(this));
+        Continuer.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                new Niveau3graph();
+            
+            }
+        });
+        SwingUtilities.invokeLater(() -> new Niveau3graph());
     }//GEN-LAST:event_ContinuerActionPerformed
 
     /**
