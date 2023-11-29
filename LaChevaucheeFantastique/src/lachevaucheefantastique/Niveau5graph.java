@@ -80,10 +80,10 @@ public class Niveau5graph extends JFrame {
                         boutons[i][j].setBackground(Color.GRAY);
                         break;
                     case 1:
-                        boutons[i][j].setBackground(Color.YELLOW);
+                        boutons[i][j].setBackground(Color.ORANGE);
                         break;
                     case 2:
-                        boutons[i][j].setBackground(Color.ORANGE);
+                        boutons[i][j].setBackground(Color.YELLOW);
                         break;
                 }
             }
@@ -100,23 +100,23 @@ public class Niveau5graph extends JFrame {
     }
 
     private void verifVictoire() {
-    boolean resteGris = false;
-    for (int i = 0; i < 6; i++) {
-        for (int j = 0; j < 6; j++) {
-            if (etatsCases[i][j] == 0) {
-                resteGris = true;
+        boolean toutEteint = true;
+        for (JButton[] ligne : boutons) {
+            for (JButton bouton : ligne) {
+                if (bouton.getBackground() == Color.YELLOW) {
+                    toutEteint = false;
+                    break;
+                }
+            }
+            if (!toutEteint) {
                 break;
             }
         }
-        if (resteGris) {
-            break;
-        }
-    }
 
-    if (!resteGris) {
-        setVisible(false);
-        new FenetreVictoire5().setVisible(true);
-    }
+        if (toutEteint) {
+            setVisible(false);
+            new FenetreVictoire5().setVisible(true);
+        }
 
 
 }

@@ -95,7 +95,7 @@ public class Niveau4graph extends JFrame {
 
         if (toutEteint) {
             setVisible(false);
-            new FenetreVictoire4().setVisible(true); //// A CHANGER POUR FENETRE VICTOIRE 4
+            new FenetreVictoire4().setVisible(true);
         }
     }
 
