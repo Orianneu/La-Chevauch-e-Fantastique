@@ -18,7 +18,13 @@ public class Niveau2graph extends JFrame {
     private final JButton[][] boutons;
     private int cavalierX, cavalierY;
 
-   
+    /**
+     *Niveau 2 avec une grille 4x4 boutons. Chaque boutons à un fond gris et une hauteur de 70 pixels.
+     * Les positions de départ du cavalier sur la grille sont définies. Certains boutons spécifiques ont
+     * un fond jaune. Un bouton pour abandonner la partie est également ajouté en bas de la fenêtre. 
+     * 
+     
+     */
     public Niveau2graph() {
         initComponents();
         setTitle("Niveau 2"); 

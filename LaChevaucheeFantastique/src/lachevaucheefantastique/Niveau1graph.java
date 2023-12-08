@@ -18,6 +18,10 @@ public class Niveau1graph extends JFrame {
     private final JButton[][] boutons;
     private int cavalierX, cavalierY;
 
+    /**
+     *Permet de créer une grille 3x3 boutons, chaque bouton à un fond gris, une hauteur de 70 pixels et deux boutons spécifiques ont un fond jaunea avec un cavallier
+     * positionné sur un autre bouton. Un bouton abandonner est également ajouté en bas de la fenêtre.
+     */
     public Niveau1graph() {
         initComponents();
         setTitle("Niveau 1"); 
