@@ -19,6 +19,7 @@ public class Modelibregraph extends JFrame {
 
     private final JButton[][] boutons;
     private int cavalierX, cavalierY;
+    private final int[][] etatsCases;
 
     /**
      * Permet de créer une grille 3x3 boutons, chaque bouton à un fond gris, une
@@ -34,8 +35,9 @@ public class Modelibregraph extends JFrame {
         setVisible(true);
 
         JPanel mainPanel = new JPanel(new GridLayout(5, 5));
-        etatsCases = new int[6][6];
+        
         boutons = new JButton[5][5];
+        etatsCases = new int[5][5];
         cavalierX = 2;
         cavalierY = 0;
 
@@ -45,7 +47,7 @@ public class Modelibregraph extends JFrame {
                 boutons[i][j].setBackground(Color.GRAY);
                 boutons[i][j].setPreferredSize(new Dimension(0, 70));
                 boutons[i][j].addActionListener(new ButtonClickListener(i, j));
-
+                etatsCases[i][j] = 0;
                 mainPanel.add(boutons[i][j]);
             }
         }
@@ -61,14 +63,13 @@ public class Modelibregraph extends JFrame {
 
     private void allumerCasesAleatoires() {
         int nombreCasesAllumees = 3; // Vous pouvez ajuster ce nombre selon vos besoins
-        Random random = new Random();
-
         for (int i = 0; i < nombreCasesAllumees; i++) {
-            int x = random.nextInt(boutons.length);
-            int y = random.nextInt(boutons[0].length);
+            int x = (int) (Math.random() * 5);
+            int y = (int) (Math.random() * 5);
 
             // Assurez-vous que la case n'est pas déjà allumée
-            if (boutons[x][y].getBackground() != Color.YELLOW) {
+            if (etatsCases[x][y] != 1) {
+                etatsCases[x][y] = 1; // 1 représente l'état jaune
                 boutons[x][y].setBackground(Color.YELLOW);
             } else {
                 // Si la case est déjà allumée, décrémentez 'i' pour répéter la boucle pour une autre case
@@ -102,8 +103,9 @@ public class Modelibregraph extends JFrame {
 
         if (toutEteint) {
             setVisible(false);
-            new FenetreVictoire().setVisible(true);
+            new FenetreVictoireLibre().setVisible(true);
         }
+
     }
 
     private class ButtonClickListener implements ActionListener {
@@ -118,11 +120,11 @@ public class Modelibregraph extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (possibleDeplacement(x, y)) {
+                etatsCases[cavalierX][cavalierY] = 0; // Définir l'état de la case actuelle à gris
                 cavalierX = x;
                 cavalierY = y;
-                if (etatsCases[x][y] == 2) {
-                    etatsCases[x][y] = 0; // Passage 2 : Orange -> Gris
-                });
+                boutons[cavalierX][cavalierY].setBackground(Color.GRAY);
+                
                 deplacement();
                 verifVictoire();
             } else {
@@ -139,13 +141,12 @@ public class Modelibregraph extends JFrame {
             int dx = newX - cavalierX;
             int dy = newY - cavalierY;
 
-            
-        boolean isPossible = (dx == 1 || dx == -1) && (dy == 2 || dy == -2) || (dx == 2 || dx == -2) && (dy == 1 || dy == -1);
-        return isPossible ;
+            boolean isPossible = (dx == 1 || dx == -1) && (dy == 2 || dy == -2) || (dx == 2 || dx == -2) && (dy == 1 || dy == -1);
+            return isPossible;
+        }
     }
-}
 
-private void abandonnerPartie() {
+    private void abandonnerPartie() {
         setVisible(false);
         new FenetrePerdu().setVisible(true);
     }
