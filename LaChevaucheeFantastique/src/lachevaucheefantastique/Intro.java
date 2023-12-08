@@ -22,10 +22,17 @@ public class Intro extends javax.swing.JFrame {
      */
     public Intro() {
         initComponents();
-        Commencer.addActionListener(new ActionListener() {
+        Aventure.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
                 new Niveau1graph();
+            
+            }
+        });
+        Libre.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                new Modelibregraph();
             
             }
         });
@@ -41,10 +48,10 @@ public class Intro extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Commencer = new javax.swing.JButton();
+        Libre = new javax.swing.JButton();
+        Aventure = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -57,13 +64,21 @@ public class Intro extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Commencer.setText("Commencer");
-        Commencer.addActionListener(new java.awt.event.ActionListener() {
+        Libre.setText("Mode Libre");
+        Libre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CommencerActionPerformed(evt);
+                LibreActionPerformed(evt);
             }
         });
-        jPanel1.add(Commencer, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 110, 40));
+        jPanel1.add(Libre, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, 120, 40));
+
+        Aventure.setText("Mode Aventure");
+        Aventure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AventureActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Aventure, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 510, 120, 40));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -77,12 +92,6 @@ public class Intro extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 100, 30));
         jLabel2.getAccessibleContext().setAccessibleDescription("");
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText(" - Le cavalier ne peut pas passer sur une case déjà éteinte.");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 370, 30));
-
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,7 +102,7 @@ public class Intro extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText(" - Lorsque le cavalier atterrit sur une case allumée, il l'éteint.");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 380, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 426, 380, 60));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -102,7 +111,7 @@ public class Intro extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lachevaucheefantastique/noir.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 420, 190));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 420, 180));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lachevaucheefantastique/Image.jpg"))); // NOI18N
         jLabel5.setPreferredSize(new java.awt.Dimension(600, 500));
@@ -116,9 +125,13 @@ public class Intro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CommencerActionPerformed
+    private void AventureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AventureActionPerformed
 
-    }//GEN-LAST:event_CommencerActionPerformed
+    }//GEN-LAST:event_AventureActionPerformed
+
+    private void LibreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LibreActionPerformed
+        
+    }//GEN-LAST:event_LibreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,11 +169,11 @@ public class Intro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Commencer;
+    private javax.swing.JButton Aventure;
+    private javax.swing.JButton Libre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
