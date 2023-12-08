@@ -28,14 +28,14 @@ public class NiveauBonusgraph extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
-        JPanel mainPanel = new JPanel(new GridLayout(6, 6));
-        boutons = new JButton[6][6];
-        etatsCases = new int[6][6];
-        cavalierX = 5; // Position de départ
-        cavalierY = 5;
+        JPanel mainPanel = new JPanel(new GridLayout(7, 7));
+        boutons = new JButton[7][7];
+        etatsCases = new int[7][7];
+        cavalierX = 6; // Position de départ
+        cavalierY = 6;
 
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
                 boutons[i][j] = new JButton();
                 boutons[i][j].setBackground(Color.GRAY);
                 boutons[i][j].setPreferredSize(new Dimension(0, 70));
@@ -48,17 +48,23 @@ public class NiveauBonusgraph extends JFrame {
         }
 
         // Nouvelle configuration de cases allumées - LVL Bonus
-        etatsCases[0][3] = 4; // Violet
-        etatsCases[1][1] = 4; // Violet
-        etatsCases[1][5] = 4; // Violet
-        etatsCases[2][3] = 4; // Violet
-        etatsCases[2][4] = 3; // Rouge
-        etatsCases[3][0] = 3; // Rouge
-        etatsCases[3][2] = 3; // Rouge
-        etatsCases[4][2] = 4; // Violet
+        etatsCases[3][0] = 1; // Violet
+        etatsCases[4][0] = 1; // Violet
+        etatsCases[1][1] = 2; // Violet
+        etatsCases[3][1] = 2; // Violet
+        etatsCases[6][1] = 3; // Rouge
+        etatsCases[1][2] = 1; // Rouge
+        etatsCases[3][1] = 1; // Rouge
+        etatsCases[4][1] = 1; // Violet
+        etatsCases[5][1] = 1; // Rouge
+        etatsCases[0][3] = 1; // Rouge
+        etatsCases[2][3] = 2; // Rouge
         etatsCases[4][3] = 3; // Rouge
-        etatsCases[5][0] = 3; // Rouge
-        etatsCases[5][1] = 3; // Rouge
+        etatsCases[5][3] = 1; // Rouge
+        etatsCases[2][4] = 4; // Rouge
+        etatsCases[4][4] = 1; // Rouge
+        etatsCases[6][4] = 1; // Rouge
+        etatsCases[4][5] = 1; // Rouge
 
         miseAJourCouleurCases();
 
