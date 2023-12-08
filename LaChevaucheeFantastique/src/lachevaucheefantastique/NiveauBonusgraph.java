@@ -143,13 +143,13 @@ public class NiveauBonusgraph extends JFrame {
                 cavalierX = x;
                 cavalierY = y;
                 if (etatsCases[x][y] == 1) {
-                    etatsCases[x][y] = 2; // Passage 1 : Jaune -> Orange
+                    etatsCases[x][y] = 2; // Passage 1 : Orange -> Jaune
                 } else if (etatsCases[x][y] == 3) {
-                    etatsCases[x][y] = 1; // Passage 2 : Orange -> Gris
+                    etatsCases[x][y] = 1; // Passage 2 : Rouge -> Orange
                 } else if (etatsCases[x][y] == 4) {
-                    etatsCases[x][y] = 3; // Passage 2 : Orange -> Gris
+                    etatsCases[x][y] = 3; // Passage 2 : Violet -> Rouge
                 } else if (etatsCases[x][y] == 2) {
-                    etatsCases[x][y] = 0; // Passage 2 : Orange -> Gris
+                    etatsCases[x][y] = 0; // Passage 2 : Jaune -> Gris
 
                 }
 
@@ -169,8 +169,8 @@ public class NiveauBonusgraph extends JFrame {
             int dx = newX - cavalierX;
             int dy = newY - cavalierY;
 
-            // Vérifie si la case est jaune ou orange
-            if (etatsCases[newX][newY] != 1 && etatsCases[newX][newY] != 2) {
+            // Vérifie si la case est jaune, orange, rouge, violet
+            if (etatsCases[newX][newY] != 1 && etatsCases[newX][newY] != 2 && etatsCases[newX][newY] != 3 && etatsCases[newX][newY] != 4 && etatsCases[newX][newY] != 5) {
                 return false;
             }
 
