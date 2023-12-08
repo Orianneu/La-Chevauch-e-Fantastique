@@ -19,7 +19,6 @@ public class FenetreVictoire5 extends javax.swing.JFrame {
      */
     public FenetreVictoire5() {
         initComponents();
-
     }
 
     /**
@@ -32,6 +31,7 @@ public class FenetreVictoire5 extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
+        Bonus = new javax.swing.JButton();
         Quitter = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         noir = new javax.swing.JLabel();
@@ -39,6 +39,7 @@ public class FenetreVictoire5 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(610, 410));
+        setPreferredSize(new java.awt.Dimension(610, 410));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -46,6 +47,14 @@ public class FenetreVictoire5 extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Bravo,");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
+
+        Bonus.setText("Bonus");
+        Bonus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BonusActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bonus, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 313, 70, 20));
 
         Quitter.setText("Quitter");
         Quitter.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +83,18 @@ public class FenetreVictoire5 extends javax.swing.JFrame {
         System.exit(0);
         this.dispose();
     }//GEN-LAST:event_QuitterActionPerformed
+
+    private void BonusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BonusActionPerformed
+        this.dispose();
+        Bonus.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                new NiveauBonusgraph();
+            }
+        });
+        SwingUtilities.invokeLater(() -> new NiveauBonusgraph());
+    
+    }//GEN-LAST:event_BonusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,6 +139,7 @@ public class FenetreVictoire5 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Bonus;
     private javax.swing.JButton Quitter;
     private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;

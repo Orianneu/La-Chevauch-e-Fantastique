@@ -12,12 +12,12 @@ import javax.swing.SwingUtilities;
  *
  * @author leafr
  */
-public class FenetreVictoire3 extends javax.swing.JFrame {
+public class FenetreVictoireBonus extends javax.swing.JFrame {
 
     /**
      * Creates new form FenetreVictoire
      */
-    public FenetreVictoire3() {
+    public FenetreVictoireBonus() {
         initComponents();
 
     }
@@ -32,7 +32,6 @@ public class FenetreVictoire3 extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        Continuer = new javax.swing.JButton();
         Quitter = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         noir = new javax.swing.JLabel();
@@ -40,7 +39,6 @@ public class FenetreVictoire3 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(610, 410));
-        setPreferredSize(new java.awt.Dimension(610, 410));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -49,26 +47,18 @@ public class FenetreVictoire3 extends javax.swing.JFrame {
         jLabel2.setText("Bravo,");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
 
-        Continuer.setText("Continuer");
-        Continuer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContinuerActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Continuer, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
-
         Quitter.setText("Quitter");
         Quitter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 QuitterActionPerformed(evt);
             }
         });
-        getContentPane().add(Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 80, -1));
+        getContentPane().add(Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 80, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Vous avez réussi ce niveau !");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 520, 80));
+        jLabel1.setText("Vous avez réussi tous les niveaux !");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 520, 80));
 
         noir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lachevaucheefantastique/noir.jpg"))); // NOI18N
         noir.setText("jLabel1");
@@ -84,18 +74,6 @@ public class FenetreVictoire3 extends javax.swing.JFrame {
         System.exit(0);
         this.dispose();
     }//GEN-LAST:event_QuitterActionPerformed
-
-    private void ContinuerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinuerActionPerformed
-        this.dispose();
-        Continuer.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                new Niveau4graph();
-            
-            }
-        });
-        SwingUtilities.invokeLater(() -> new Niveau4graph());
-    }//GEN-LAST:event_ContinuerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,14 +92,26 @@ public class FenetreVictoire3 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FenetreVictoire3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreVictoireBonus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FenetreVictoire3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreVictoireBonus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FenetreVictoire3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreVictoireBonus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FenetreVictoire3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreVictoireBonus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -130,13 +120,12 @@ public class FenetreVictoire3 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenetreVictoire3().setVisible(true);
+                new FenetreVictoireBonus().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Continuer;
     private javax.swing.JButton Quitter;
     private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;

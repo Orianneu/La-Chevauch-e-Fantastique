@@ -17,8 +17,6 @@ public class Niveau5graph extends JFrame {
 
     private final JButton[][] boutons;
     private int cavalierX, cavalierY;
-
-    // Ajout d'un état pour les cases (0: Gris, 1: Jaune, 2: Orange)
     private final int[][] etatsCases;
 
     public Niveau5graph() {
