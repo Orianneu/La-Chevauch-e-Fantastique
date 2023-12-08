@@ -21,6 +21,11 @@ public class Niveau5graph extends JFrame {
     // Ajout d'un état pour les cases (0: Gris, 1: Jaune, 2: Orange)
     private final int[][] etatsCases;
 
+    /**
+     *Niveau 5 avec une grille 6x6. Les boutons sont toujours gris de hauteur 70 pixels
+     * à l'exceptions de certains boutons spécifiques à fond noir, et de nouveau boutons au fond orange afin d'augmenter 
+     * la difficulté du niveau. Un bouton permettant d'abandonner la partie est ajouté à la fin de la fenêtre. 
+     */
     public Niveau5graph() {
         initComponents();
         setTitle("Niveau 5");

@@ -15,7 +15,7 @@ import javax.swing.SwingUtilities;
 public class FenetreVictoire extends javax.swing.JFrame {
 
     /**
-     * Creates new form FenetreVictoire
+     * Fonction permettant d'affcher une fenêtre victoire
      */
     public FenetreVictoire() {
         initComponents();

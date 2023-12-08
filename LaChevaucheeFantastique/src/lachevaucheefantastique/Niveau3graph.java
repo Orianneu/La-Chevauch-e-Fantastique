@@ -18,6 +18,11 @@ public class Niveau3graph extends JFrame {
     private final JButton[][] boutons;
     private int cavalierX, cavalierY;
 
+    /**
+     *Niveau 3 avec une grille 5x5. Les boutons ont un fond gris avec une hauteur de 70 pixels. 
+     *Certains boutons spécifiques ont un fond jaune afin de les distinguer et les cavaliers ont des emplaements
+     *spécifiques en début de partie
+     */
     public Niveau3graph() {
         initComponents();
         setTitle("Niveau 3"); 

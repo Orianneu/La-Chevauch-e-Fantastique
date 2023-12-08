@@ -18,6 +18,11 @@ public class Niveau4graph extends JFrame {
     private final JButton[][] boutons;
     private int cavalierX, cavalierY;
 
+    /**
+     Niveau 4 de grille 8x8, chaque bouton à un fond gris, de hauteur 70, à l'exception de 
+     * certain bouton spécifiques à fond jaune. La position de départ des cavaliers est défini en amont. 
+     * Un bouton pour abandonner la partie est ajouté en bas de la fenêtre. 
+     */
     public Niveau4graph() {
         initComponents();
         setTitle("Niveau 4");
