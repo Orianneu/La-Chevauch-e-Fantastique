@@ -18,6 +18,7 @@ public class Niveau2graph extends JFrame {
     private final JButton[][] boutons;
     private int cavalierX, cavalierY;
 
+   
     public Niveau2graph() {
         initComponents();
         setTitle("Niveau 2"); 

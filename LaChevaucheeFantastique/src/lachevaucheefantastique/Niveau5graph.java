@@ -64,17 +64,13 @@ public class Niveau5graph extends JFrame {
 
         boutons[cavalierX][cavalierY].setText("♞");
 
-        JButton abandonnerButton = new JButton("Abandonner");
-        
-
         add(mainPanel, BorderLayout.CENTER);
-        add(abandonnerButton, BorderLayout.SOUTH);
-        
+
     }
 
     private void miseAJourCouleurCases() {
         for (int i = 0; i < 6; i++) {
-            for (int j = 0; j <6; j++) {
+            for (int j = 0; j < 6; j++) {
                 switch (etatsCases[i][j]) {
                     case 0:
                         boutons[i][j].setBackground(Color.GRAY);
@@ -118,11 +114,10 @@ public class Niveau5graph extends JFrame {
             new FenetreVictoire5().setVisible(true);
         }
 
-
-}
-
+    }
 
     private class ButtonClickListener implements ActionListener {
+
         private int x, y;
 
         public ButtonClickListener(int x, int y) {
@@ -156,17 +151,17 @@ public class Niveau5graph extends JFrame {
         }
 
         private boolean possibleDeplacement(int newX, int newY) {
-    int dx = newX - cavalierX;
-    int dy = newY - cavalierY;
+            int dx = newX - cavalierX;
+            int dy = newY - cavalierY;
 
-    // Vérifie si la case est jaune ou orange
-    if (etatsCases[newX][newY] != 1 && etatsCases[newX][newY] != 2) {
-        return false;
-    }
+            // Vérifie si la case est jaune ou orange
+            if (etatsCases[newX][newY] != 1 && etatsCases[newX][newY] != 2) {
+                return false;
+            }
 
-    boolean isPossible = (dx == 1 || dx == -1) && (dy == 2 || dy == -2) || (dx == 2 || dx == -2) && (dy == 1 || dy == -1);
-    return isPossible;
-}
+            boolean isPossible = (dx == 1 || dx == -1) && (dy == 2 || dy == -2) || (dx == 2 || dx == -2) && (dy == 1 || dy == -1);
+            return isPossible;
+        }
 
     }
 
@@ -174,11 +169,6 @@ public class Niveau5graph extends JFrame {
         setVisible(false);
         new FenetrePerdu().setVisible(true);
     }
-
-
-    
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -191,6 +181,7 @@ public class Niveau5graph extends JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Abandonner = new javax.swing.JButton();
+        Aide = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -200,11 +191,11 @@ public class Niveau5graph extends JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 437, Short.MAX_VALUE)
+            .addGap(0, 449, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
+            .addGap(0, 212, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -217,12 +208,28 @@ public class Niveau5graph extends JFrame {
         });
         getContentPane().add(Abandonner, java.awt.BorderLayout.PAGE_START);
 
+        Aide.setText("?");
+        Aide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AideActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Aide, java.awt.BorderLayout.PAGE_END);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void AbandonnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbandonnerActionPerformed
         abandonnerPartie();
     }//GEN-LAST:event_AbandonnerActionPerformed
+
+    private void AideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AideActionPerformed
+        JOptionPane.showMessageDialog(Niveau5graph.this,
+                "INFORMATION:\nUne nouvelle couleur vient d'être ajoutée (orange), vous devez éteindre la case 2 fois",
+                "Aide",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+    }//GEN-LAST:event_AideActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,6 +307,7 @@ public class Niveau5graph extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Abandonner;
+    private javax.swing.JButton Aide;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
