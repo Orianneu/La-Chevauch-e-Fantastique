@@ -50,10 +50,9 @@ public class Niveau1graph extends JFrame {
 
         boutons[cavalierX][cavalierY].setText("♞");
 
-        JButton abandonnerButton = new JButton("Abandonner");
 
         add(mainPanel, BorderLayout.CENTER);
-        add(abandonnerButton, BorderLayout.SOUTH);
+        
     }
 
     private void deplacement() {
