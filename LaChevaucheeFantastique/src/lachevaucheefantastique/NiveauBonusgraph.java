@@ -91,13 +91,12 @@ public class NiveauBonusgraph extends JFrame {
                         boutons[i][j].setBackground(Color.RED);
                         break;
                     case 4:
-                        boutons[i][j].setBackground(new Color(128, 0, 128)); 
+                        boutons[i][j].setBackground(new Color(128, 0, 128));
                         break;
                 }
             }
         }
     }
-
 
     private void deplacement() {
         for (JButton[] ligne : boutons) {
@@ -143,12 +142,15 @@ public class NiveauBonusgraph extends JFrame {
             if (possibleDeplacement(x, y)) {
                 cavalierX = x;
                 cavalierY = y;
-
-                // Gérer les états des cases lors du passage du chevalier
                 if (etatsCases[x][y] == 1) {
                     etatsCases[x][y] = 2; // Passage 1 : Jaune -> Orange
+                } else if (etatsCases[x][y] == 3) {
+                    etatsCases[x][y] = 1; // Passage 2 : Orange -> Gris
+                } else if (etatsCases[x][y] == 4) {
+                    etatsCases[x][y] = 3; // Passage 2 : Orange -> Gris
                 } else if (etatsCases[x][y] == 2) {
                     etatsCases[x][y] = 0; // Passage 2 : Orange -> Gris
+
                 }
 
                 miseAJourCouleurCases();
@@ -197,6 +199,7 @@ public class NiveauBonusgraph extends JFrame {
         Aide = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
