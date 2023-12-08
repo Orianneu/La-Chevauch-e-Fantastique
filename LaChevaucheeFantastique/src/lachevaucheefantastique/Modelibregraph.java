@@ -4,13 +4,12 @@ package lachevaucheefantastique;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
-
 import lachevaucheefantastique.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 /**
  *
@@ -22,17 +21,20 @@ public class Modelibregraph extends JFrame {
     private int cavalierX, cavalierY;
 
     /**
-     *Permet de créer une grille 3x3 boutons, chaque bouton à un fond gris, une hauteur de 70 pixels et deux boutons spécifiques ont un fond jaune avec un cavallier
-     * positionné sur un autre bouton. Un bouton abandonner est également ajouté en bas de la fenêtre.
+     * Permet de créer une grille 3x3 boutons, chaque bouton à un fond gris, une
+     * hauteur de 70 pixels et deux boutons spécifiques ont un fond jaune avec
+     * un cavallier positionné sur un autre bouton. Un bouton abandonner est
+     * également ajouté en bas de la fenêtre.
      */
     public Modelibregraph() {
         initComponents();
-        setTitle("Niveau 1"); 
+        setTitle("Niveau 1 Mode Libre");
         setSize(300, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
         JPanel mainPanel = new JPanel(new GridLayout(5, 5));
+        etatsCases = new int[6][6];
         boutons = new JButton[5][5];
         cavalierX = 2;
         cavalierY = 0;
@@ -45,16 +47,34 @@ public class Modelibregraph extends JFrame {
                 boutons[i][j].addActionListener(new ButtonClickListener(i, j));
 
                 mainPanel.add(boutons[i][j]);
-                }
+            }
         }
 
-               
         boutons[cavalierX][cavalierY].setText("♞");
 
         JButton abandonnerButton = new JButton("Abandonner");
 
         add(mainPanel, BorderLayout.CENTER);
         add(abandonnerButton, BorderLayout.SOUTH);
+        allumerCasesAleatoires();
+    }
+
+    private void allumerCasesAleatoires() {
+        int nombreCasesAllumees = 3; // Vous pouvez ajuster ce nombre selon vos besoins
+        Random random = new Random();
+
+        for (int i = 0; i < nombreCasesAllumees; i++) {
+            int x = random.nextInt(boutons.length);
+            int y = random.nextInt(boutons[0].length);
+
+            // Assurez-vous que la case n'est pas déjà allumée
+            if (boutons[x][y].getBackground() != Color.YELLOW) {
+                boutons[x][y].setBackground(Color.YELLOW);
+            } else {
+                // Si la case est déjà allumée, décrémentez 'i' pour répéter la boucle pour une autre case
+                i--;
+            }
+        }
     }
 
     private void deplacement() {
@@ -87,6 +107,7 @@ public class Modelibregraph extends JFrame {
     }
 
     private class ButtonClickListener implements ActionListener {
+
         private int x, y;
 
         public ButtonClickListener(int x, int y) {
@@ -99,14 +120,15 @@ public class Modelibregraph extends JFrame {
             if (possibleDeplacement(x, y)) {
                 cavalierX = x;
                 cavalierY = y;
-                boutons[cavalierX][cavalierY].setBackground(
-                        boutons[cavalierX][cavalierY].getBackground() == Color.YELLOW ? Color.GRAY : Color.YELLOW
-                );
+                if (etatsCases[x][y] == 2) {
+                    etatsCases[x][y] = 0; // Passage 2 : Orange -> Gris
+                });
                 deplacement();
                 verifVictoire();
             } else {
-                JOptionPane.showMessageDialog(Modelibregraph.this,
-                        "Mouvement impossible ou case grise",
+                JOptionPane.showMessageDialog(
+                        Modelibregraph.this,
+                        "Mouvement impossible",
                         "Erreur",
                         JOptionPane.ERROR_MESSAGE
                 );
@@ -117,17 +139,16 @@ public class Modelibregraph extends JFrame {
             int dx = newX - cavalierX;
             int dy = newY - cavalierY;
 
-            boolean isPossible = (dx == 1 || dx == -1) && (dy == 2 || dy == -2) || (dx == 2 || dx == -2) && (dy == 1 || dy == -1);
-            return isPossible;
-        }
+            
+        boolean isPossible = (dx == 1 || dx == -1) && (dy == 2 || dy == -2) || (dx == 2 || dx == -2) && (dy == 1 || dy == -1);
+        return isPossible ;
     }
+}
 
-    private void abandonnerPartie() {
+private void abandonnerPartie() {
         setVisible(false);
         new FenetrePerdu().setVisible(true);
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
