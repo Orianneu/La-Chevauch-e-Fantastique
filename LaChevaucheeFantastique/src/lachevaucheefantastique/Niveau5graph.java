@@ -136,9 +136,9 @@ public class Niveau5graph extends JFrame {
 
                 // Gérer les états des cases lors du passage du chevalier
                 if (etatsCases[x][y] == 1) {
-                    etatsCases[x][y] = 2; // Passage 1 : Jaune -> Orange
+                    etatsCases[x][y] = 2; // Passage 1 : Orange -> Jaune
                 } else if (etatsCases[x][y] == 2) {
-                    etatsCases[x][y] = 0; // Passage 2 : Orange -> Gris
+                    etatsCases[x][y] = 0; // Passage 2 : Jaune -> Gris
                 }
 
                 miseAJourCouleurCases();
@@ -184,6 +184,7 @@ public class Niveau5graph extends JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Abandonner = new javax.swing.JButton();
+        Reset = new javax.swing.JButton();
         Aide = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -195,11 +196,11 @@ public class Niveau5graph extends JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
+            .addGap(0, 426, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 212, Short.MAX_VALUE)
+            .addGap(0, 267, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -211,6 +212,14 @@ public class Niveau5graph extends JFrame {
             }
         });
         getContentPane().add(Abandonner, java.awt.BorderLayout.PAGE_START);
+
+        Reset.setText("Reset");
+        Reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Reset, java.awt.BorderLayout.LINE_END);
 
         Aide.setText("?");
         Aide.addActionListener(new java.awt.event.ActionListener() {
@@ -234,6 +243,11 @@ public class Niveau5graph extends JFrame {
                 JOptionPane.INFORMATION_MESSAGE
         );
     }//GEN-LAST:event_AideActionPerformed
+
+    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
+        setVisible(false);
+        new Niveau5graph();
+    }//GEN-LAST:event_ResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,6 +326,7 @@ public class Niveau5graph extends JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Abandonner;
     private javax.swing.JButton Aide;
+    private javax.swing.JButton Reset;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
