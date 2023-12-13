@@ -7,6 +7,7 @@ package lachevaucheefantastique;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,18 +25,36 @@ public class Intro extends javax.swing.JFrame {
         initComponents();
         Aventure.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                ReglesAventurePopup();
                 setVisible(false);
                 new Niveau1graph();
-            
+
             }
         });
+
         Libre.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                ReglesLibrePopup();
                 setVisible(false);
                 new Modelibregraph();
-            
+
             }
         });
+    }
+
+    private void ReglesLibrePopup() {
+        String rulesText = "Règles spéciales Mode Libre:\n"
+                + "- Règle 1: Tu peux te déplacer sur les cases grises.\n"
+                + "- Règle 2: Tu as un nombre de coups limités.\n"
+                + "- Règle 3: More rules as needed.";
+        JOptionPane.showMessageDialog(this, rulesText, "Mode Libre Règles", JOptionPane.INFORMATION_MESSAGE);
+    }
+    private void ReglesAventurePopup() {
+        String rulesText = "Règles spéciales Mode Aventure:\n"
+                + "- Règle 1: Tu ne peux pas te déplacer sur une case grise.\n"
+                + "- Règle 2: Tu n'as pas un nombre de coups limités.\n"
+                + "- Règle 3: Si tu es bloqué cliques sur reset ou abandonne.";
+        JOptionPane.showMessageDialog(this, rulesText, "Mode Libre Règles", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
@@ -130,7 +149,7 @@ public class Intro extends javax.swing.JFrame {
     }//GEN-LAST:event_AventureActionPerformed
 
     private void LibreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LibreActionPerformed
-        
+
     }//GEN-LAST:event_LibreActionPerformed
 
     /**

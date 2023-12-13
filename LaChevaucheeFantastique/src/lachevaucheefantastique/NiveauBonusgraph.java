@@ -241,7 +241,7 @@ public class NiveauBonusgraph extends JFrame {
 
     private void AideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AideActionPerformed
         JOptionPane.showMessageDialog(NiveauBonusgraph.this,
-                "INFORMATION:\nUne nouvelle couleur vient d'être ajoutée (orange), vous devez éteindre la case 2 fois",
+                "INFORMATION:\nDe nouvelles couleurs viennent d'être ajoutées: orange -> vous devez éteindre la case 2 fois \n rouge -> éteindre 3 fois\n violet -> 4 fois",
                 "Aide",
                 JOptionPane.INFORMATION_MESSAGE
         );
