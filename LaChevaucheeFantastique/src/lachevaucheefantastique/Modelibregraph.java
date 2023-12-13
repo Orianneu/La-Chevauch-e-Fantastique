@@ -20,6 +20,7 @@ public class Modelibregraph extends JFrame {
     private final JButton[][] boutons;
     private int cavalierX, cavalierY;
     private final int[][] etatsCases;
+    private int compteur;
 
     /**
      * Permet de créer une grille 3x3 boutons, chaque bouton à un fond gris, une
@@ -127,6 +128,8 @@ public class Modelibregraph extends JFrame {
                 
                 deplacement();
                 verifVictoire();
+                compteur++;
+                System.out.println("Nombre de coups : " + compteur);
             } else {
                 JOptionPane.showMessageDialog(
                         Modelibregraph.this,
