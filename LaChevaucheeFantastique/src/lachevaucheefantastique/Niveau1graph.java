@@ -48,7 +48,7 @@ public class Niveau1graph extends JFrame {
         boutons[0][1].setBackground(Color.YELLOW);
         boutons[2][2].setBackground(Color.YELLOW);
 
-        boutons[cavalierX][cavalierY].setText("♞");
+        boutons[cavalierX][cavalierY].setText("<html><font size='6'>&#9822;</font></html>");
 
 
         add(mainPanel, BorderLayout.CENTER);
@@ -58,7 +58,7 @@ public class Niveau1graph extends JFrame {
     private void deplacement() {
         for (JButton[] ligne : boutons) {
             for (JButton bouton : ligne) {
-                bouton.setText(bouton == boutons[cavalierX][cavalierY] ? "♞" : "");
+                bouton.setText(bouton == boutons[cavalierX][cavalierY] ? "<html><font size='6'>&#9822;</font></html>" : "");
             }
         }
         revalidate();

@@ -52,7 +52,7 @@ public class Modelibregraph extends JFrame {
             }
         }
 
-        boutons[cavalierX][cavalierY].setText("♞");
+        boutons[cavalierX][cavalierY].setText("<html><font size='6'>&#9822;</font></html>");
 
         JButton abandonnerButton = new JButton("Abandonner");
 
