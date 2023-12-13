@@ -20,8 +20,6 @@ public class Modelibregraph extends JFrame {
     private final JButton[][] boutons;
     private int cavalierX, cavalierY;
     private final int[][] etatsCases;
-    private int compteur=0;
-    private JLabel compteurLabel;
 
     /**
      * Permet de créer une grille 3x3 boutons, chaque bouton à un fond gris, une
@@ -37,7 +35,6 @@ public class Modelibregraph extends JFrame {
         setVisible(true);
 
         JPanel mainPanel = new JPanel(new GridLayout(5, 5));
-        
         
         boutons = new JButton[5][5];
         etatsCases = new int[5][5];
@@ -56,16 +53,12 @@ public class Modelibregraph extends JFrame {
         }
 
         boutons[cavalierX][cavalierY].setText("♞");
-        
-        compteurLabel = new JLabel("Number of Movements: " + compteur);
-        add(compteurLabel, BorderLayout.NORTH); // Ajout de l'étiquette au panneau du haut
 
         JButton abandonnerButton = new JButton("Abandonner");
 
         add(mainPanel, BorderLayout.CENTER);
         add(abandonnerButton, BorderLayout.SOUTH);
-        JLabel compteurgraph = new JLabel("Number of Movements: " + compteur);
-        
+        allumerCasesAleatoires();
     }
 
     private void allumerCasesAleatoires() {
@@ -133,12 +126,6 @@ public class Modelibregraph extends JFrame {
                 
                 deplacement();
                 verifVictoire();
-                compteur++;
-                compteurLabel.setText("Number of Movements: " + compteur); // Mettre à jour le compteur
-                System.out.println("Nombre de coups : " + compteur);
-
-
-
             } else {
                 JOptionPane.showMessageDialog(
                         Modelibregraph.this,
