@@ -68,7 +68,7 @@ public class NiveauBonusgraph extends JFrame {
 
         miseAJourCouleurCases();
 
-        boutons[cavalierX][cavalierY].setText("♞");
+        boutons[cavalierX][cavalierY].setText("<html><font size='6'>&#9822;</font></html>");
 
         add(mainPanel, BorderLayout.CENTER);
 
@@ -101,7 +101,7 @@ public class NiveauBonusgraph extends JFrame {
     private void deplacement() {
         for (JButton[] ligne : boutons) {
             for (JButton bouton : ligne) {
-                bouton.setText(bouton == boutons[cavalierX][cavalierY] ? "♞" : "");
+                bouton.setText(bouton == boutons[cavalierX][cavalierY] ? "<html><font size='6'>&#9822;</font></html>" : "");
             }
         }
         revalidate();
@@ -250,7 +250,7 @@ public class NiveauBonusgraph extends JFrame {
 
     private void AideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AideActionPerformed
         JOptionPane.showMessageDialog(NiveauBonusgraph.this,
-                "INFORMATION:\nDe nouvelles couleurs viennent d'être ajoutées: orange -> vous devez éteindre la case 2 fois \n rouge -> éteindre 3 fois\n violet -> 4 fois",
+                "INFORMATION:\nDe nouvelles couleurs viennent d'être ajoutées:\norange -> vous devez éteindre la case 2 fois \nrouge -> vous devez éteindre 3 fois\nviolet -> vous devez éteindre 4 fois",
                 "Aide",
                 JOptionPane.INFORMATION_MESSAGE
         );
