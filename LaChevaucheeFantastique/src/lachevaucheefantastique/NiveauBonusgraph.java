@@ -197,6 +197,7 @@ public class NiveauBonusgraph extends JFrame {
         jPanel1 = new javax.swing.JPanel();
         Abandonner = new javax.swing.JButton();
         Aide = new javax.swing.JButton();
+        Reset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -207,7 +208,7 @@ public class NiveauBonusgraph extends JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
+            .addGap(0, 377, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,6 +233,14 @@ public class NiveauBonusgraph extends JFrame {
         });
         getContentPane().add(Aide, java.awt.BorderLayout.PAGE_END);
 
+        Reset.setText("Reset");
+        Reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Reset, java.awt.BorderLayout.LINE_END);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -246,6 +255,11 @@ public class NiveauBonusgraph extends JFrame {
                 JOptionPane.INFORMATION_MESSAGE
         );
     }//GEN-LAST:event_AideActionPerformed
+
+    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
+        setVisible(false);
+        new NiveauBonusgraph();
+    }//GEN-LAST:event_ResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -356,6 +370,7 @@ public class NiveauBonusgraph extends JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Abandonner;
     private javax.swing.JButton Aide;
+    private javax.swing.JButton Reset;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
