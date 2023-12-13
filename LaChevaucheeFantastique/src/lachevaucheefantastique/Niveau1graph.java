@@ -143,6 +143,7 @@ public class Niveau1graph extends JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Abandonner = new javax.swing.JButton();
+        Reset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 600));
@@ -158,7 +159,7 @@ public class Niveau1graph extends JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGap(0, 379, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -170,6 +171,9 @@ public class Niveau1graph extends JFrame {
             }
         });
         getContentPane().add(Abandonner, java.awt.BorderLayout.PAGE_START);
+
+        Reset.setText("Reset");
+        getContentPane().add(Reset, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -224,6 +228,7 @@ public class Niveau1graph extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Abandonner;
+    private javax.swing.JButton Reset;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

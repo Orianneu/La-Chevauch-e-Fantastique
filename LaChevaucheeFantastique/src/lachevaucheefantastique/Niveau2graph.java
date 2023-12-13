@@ -149,6 +149,7 @@ public class Niveau2graph extends JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Abandonner = new javax.swing.JButton();
+        Reset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -163,7 +164,7 @@ public class Niveau2graph extends JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
+            .addGap(0, 572, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -176,12 +177,25 @@ public class Niveau2graph extends JFrame {
         });
         getContentPane().add(Abandonner, java.awt.BorderLayout.PAGE_START);
 
+        Reset.setText("Reset");
+        Reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Reset, java.awt.BorderLayout.PAGE_END);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void AbandonnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbandonnerActionPerformed
         abandonnerPartie();
     }//GEN-LAST:event_AbandonnerActionPerformed
+
+    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
+        setVisible(false);
+        new Niveau2graph();
+    }//GEN-LAST:event_ResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,6 +249,7 @@ public class Niveau2graph extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Abandonner;
+    private javax.swing.JButton Reset;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
