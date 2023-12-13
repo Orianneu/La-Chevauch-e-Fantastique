@@ -62,16 +62,17 @@ public class Modelibregraph extends JFrame {
     }
 
     private void allumerCasesAleatoires() {
-        int nombreCasesAllumees = 3;
+        int nombreCasesAllumees = 3; // Vous pouvez ajuster ce nombre selon vos besoins
         for (int i = 0; i < nombreCasesAllumees; i++) {
             int x = (int) (Math.random() * 5);
             int y = (int) (Math.random() * 5);
 
-            
+            // Assurez-vous que la case n'est pas déjà allumée
             if (etatsCases[x][y] != 1) {
-                etatsCases[x][y] = 1; //jaune
+                etatsCases[x][y] = 1; // 1 représente l'état jaune
                 boutons[x][y].setBackground(Color.YELLOW);
             } else {
+                // Si la case est déjà allumée, décrémentez 'i' pour répéter la boucle pour une autre case
                 i--;
             }
         }
@@ -119,7 +120,7 @@ public class Modelibregraph extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (possibleDeplacement(x, y)) {
-                etatsCases[cavalierX][cavalierY] = 0; 
+                etatsCases[cavalierX][cavalierY] = 0; // Définir l'état de la case actuelle à gris
                 cavalierX = x;
                 cavalierY = y;
                 boutons[cavalierX][cavalierY].setBackground(Color.GRAY);
