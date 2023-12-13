@@ -173,6 +173,11 @@ public class Niveau1graph extends JFrame {
         getContentPane().add(Abandonner, java.awt.BorderLayout.PAGE_START);
 
         Reset.setText("Reset");
+        Reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetActionPerformed(evt);
+            }
+        });
         getContentPane().add(Reset, java.awt.BorderLayout.PAGE_END);
 
         pack();
@@ -181,6 +186,11 @@ public class Niveau1graph extends JFrame {
     private void AbandonnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbandonnerActionPerformed
         abandonnerPartie();
     }//GEN-LAST:event_AbandonnerActionPerformed
+
+    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
+        setVisible(false);
+        new Niveau1graph();
+    }//GEN-LAST:event_ResetActionPerformed
 
     /**
      * @param args the command line arguments
