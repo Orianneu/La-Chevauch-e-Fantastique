@@ -89,7 +89,7 @@ public class Niveau3graph extends JFrame {
 
         if (toutEteint) {
             setVisible(false);
-            new FenetreVictoire3().setVisible(true); //// A CHANGER POUR FENETRE VICTOIRE 4
+            new FenetreVictoire3().setVisible(true); 
         }
     }
 

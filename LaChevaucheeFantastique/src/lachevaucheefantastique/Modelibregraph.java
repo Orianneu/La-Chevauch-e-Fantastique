@@ -21,16 +21,19 @@ public class Modelibregraph extends JFrame {
     private int cavalierX, cavalierY;
     private final int[][] etatsCases;
     private int compteur;
+    private int nbCoups;
 
     /**
-     * Permet de créer une grille 3x3 boutons, chaque bouton à un fond gris, une
-     * hauteur de 70 pixels et deux boutons spécifiques ont un fond jaune avec
+     * Permet de créer une grille 5x5 boutons, chaque bouton à un fond gris, une
+     * hauteur de 70 pixels et quatre boutons spécifiques ont un fond jaune avec
      * un cavallier positionné sur un autre bouton. Un bouton abandonner est
-     * également ajouté en bas de la fenêtre.
+     * également ajouté en haut de la fenêtre.
      */
     public Modelibregraph() {
         initComponents();
-        setTitle("Niveau 1 Mode Libre");
+        nbCoups = 0;
+        coups.setText("Coups joués : " + nbCoups);
+        setTitle("Niveau Mode Libre");
         setSize(300, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -63,17 +66,15 @@ public class Modelibregraph extends JFrame {
     }
 
     private void allumerCasesAleatoires() {
-        int nombreCasesAllumees = 3; // Vous pouvez ajuster ce nombre selon vos besoins
+        int nombreCasesAllumees = 4; 
         for (int i = 0; i < nombreCasesAllumees; i++) {
             int x = (int) (Math.random() * 5);
             int y = (int) (Math.random() * 5);
 
-            // Assurez-vous que la case n'est pas déjà allumée
             if (etatsCases[x][y] != 1) {
-                etatsCases[x][y] = 1; // 1 représente l'état jaune
+                etatsCases[x][y] = 1; 
                 boutons[x][y].setBackground(Color.YELLOW);
             } else {
-                // Si la case est déjà allumée, décrémentez 'i' pour répéter la boucle pour une autre case
                 i--;
             }
         }
@@ -121,15 +122,15 @@ public class Modelibregraph extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (possibleDeplacement(x, y)) {
-                etatsCases[cavalierX][cavalierY] = 0; // Définir l'état de la case actuelle à gris
+                etatsCases[cavalierX][cavalierY] = 0; 
                 cavalierX = x;
                 cavalierY = y;
                 boutons[cavalierX][cavalierY].setBackground(Color.GRAY);
                 
                 deplacement();
                 verifVictoire();
-                compteur++;
-                System.out.println("Nombre de coups : " + compteur);
+                nbCoups++;  
+                coups.setText("Coups joués : " + nbCoups);
             } else {
                 JOptionPane.showMessageDialog(
                         Modelibregraph.this,
@@ -165,6 +166,7 @@ public class Modelibregraph extends JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Abandonner = new javax.swing.JButton();
+        coups = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -178,7 +180,7 @@ public class Modelibregraph extends JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGap(0, 386, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -190,6 +192,9 @@ public class Modelibregraph extends JFrame {
             }
         });
         getContentPane().add(Abandonner, java.awt.BorderLayout.PAGE_START);
+
+        coups.setText("Coups");
+        getContentPane().add(coups, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -211,6 +216,7 @@ public class Modelibregraph extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Abandonner;
+    private javax.swing.JLabel coups;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

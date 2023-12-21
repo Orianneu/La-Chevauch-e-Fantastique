@@ -17,8 +17,6 @@ public class NiveauBonusgraph extends JFrame {
 
     private final JButton[][] boutons;
     private int cavalierX, cavalierY;
-
-    // Ajout d'un état pour les cases (0: Gris, 1: Jaune, 2: Orange)
     private final int[][] etatsCases;
 
     public NiveauBonusgraph() {
@@ -31,7 +29,7 @@ public class NiveauBonusgraph extends JFrame {
         JPanel mainPanel = new JPanel(new GridLayout(7, 7));
         boutons = new JButton[7][7];
         etatsCases = new int[7][7];
-        cavalierX = 6; // Position de départ
+        cavalierX = 6;
         cavalierY = 6;
 
         for (int i = 0; i < 7; i++) {
@@ -41,29 +39,29 @@ public class NiveauBonusgraph extends JFrame {
                 boutons[i][j].setPreferredSize(new Dimension(0, 70));
                 boutons[i][j].addActionListener(new ButtonClickListener(i, j));
 
-                etatsCases[i][j] = 0; // Toutes les cases commencent en gris
+                etatsCases[i][j] = 0; 
 
                 mainPanel.add(boutons[i][j]);
             }
         }
 
         // Nouvelle configuration de cases allumées - LVL Bonus
-        etatsCases[0][3] = 2; // Violet
-        etatsCases[5][4] = 2; // Violet
-        etatsCases[1][1] = 2; // Violet
-        etatsCases[1][3] = 2; // Violet
-        etatsCases[2][1] = 1; // Rouge
-        etatsCases[1][3] = 1; // Rouge
-        etatsCases[1][4] = 2; // Violet
-        etatsCases[1][5] = 2; // Rouge
-        etatsCases[2][2] = 1; // Rouge
-        etatsCases[3][0] = 2; // Rouge
-        etatsCases[3][2] = 1; // Rouge
-        etatsCases[3][4] = 4; // Rouge
-        etatsCases[2][1] = 2; // Rouge
-        etatsCases[4][2] = 4; // Rouge
-        etatsCases[4][4] = 2; // Rouge
-        etatsCases[6][3] = 2; // Rouge
+        etatsCases[0][3] = 2; 
+        etatsCases[5][4] = 2; 
+        etatsCases[1][1] = 2; 
+        etatsCases[1][3] = 2; 
+        etatsCases[2][1] = 1; 
+        etatsCases[1][3] = 1; 
+        etatsCases[1][4] = 2; 
+        etatsCases[1][5] = 2; 
+        etatsCases[2][2] = 1; 
+        etatsCases[3][0] = 2;
+        etatsCases[3][2] = 1; 
+        etatsCases[3][4] = 4; 
+        etatsCases[2][1] = 2; 
+        etatsCases[4][2] = 4; 
+        etatsCases[4][4] = 2; 
+        etatsCases[6][3] = 2; 
 
         miseAJourCouleurCases();
 

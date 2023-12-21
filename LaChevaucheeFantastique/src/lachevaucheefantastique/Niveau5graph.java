@@ -44,8 +44,7 @@ public class Niveau5graph extends JFrame {
                 boutons[i][j].setPreferredSize(new Dimension(0, 70));
                 boutons[i][j].addActionListener(new ButtonClickListener(i, j));
 
-                etatsCases[i][j] = 0; // Toutes les cases commencent en gris
-
+                etatsCases[i][j] = 0; 
                 mainPanel.add(boutons[i][j]);
             }
         }

@@ -46,7 +46,7 @@ public class Niveau4graph extends JFrame {
             }
         }
 
-        // Initialisation de quelques cases allumées - LVL 3
+        // Initialisation de quelques cases allumées - LVL 4
         boutons[0][5].setBackground(Color.YELLOW);
         boutons[2][4].setBackground(Color.YELLOW);
         boutons[3][0].setBackground(Color.YELLOW);
