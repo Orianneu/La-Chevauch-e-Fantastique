@@ -39,15 +39,15 @@ public class FenetreVictoire3 extends javax.swing.JFrame {
         image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(610, 410));
-        setPreferredSize(new java.awt.Dimension(610, 410));
+        setMinimumSize(new java.awt.Dimension(538, 490));
+        setPreferredSize(new java.awt.Dimension(538, 490));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Bravo,");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
         Continuer.setText("Continuer");
         Continuer.addActionListener(new java.awt.event.ActionListener() {
@@ -55,7 +55,7 @@ public class FenetreVictoire3 extends javax.swing.JFrame {
                 ContinuerActionPerformed(evt);
             }
         });
-        getContentPane().add(Continuer, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
+        getContentPane().add(Continuer, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, -1));
 
         Quitter.setText("Quitter");
         Quitter.addActionListener(new java.awt.event.ActionListener() {
@@ -63,19 +63,19 @@ public class FenetreVictoire3 extends javax.swing.JFrame {
                 QuitterActionPerformed(evt);
             }
         });
-        getContentPane().add(Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 80, -1));
+        getContentPane().add(Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 80, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Vous avez réussi ce niveau !");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 520, 80));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 520, 80));
 
         noir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lachevaucheefantastique/noir.jpg"))); // NOI18N
         noir.setText("jLabel1");
-        getContentPane().add(noir, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 420, 190));
+        getContentPane().add(noir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 420, 190));
 
         image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lachevaucheefantastique/Image.jpg"))); // NOI18N
-        getContentPane().add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, -200, 690, 860));
+        getContentPane().add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -200, 690, 860));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

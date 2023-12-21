@@ -43,17 +43,16 @@ public class Intro extends javax.swing.JFrame {
     }
 
     private void ReglesLibrePopup() {
-        String rulesText = "Règles spéciales Mode Libre:\n"
+        String rulesText = "Règles spéciales Mode Libre:\n\n"
                 + "- Règle 1: Tu peux te déplacer sur les cases grises.\n"
-                + "- Règle 2: Tu as un nombre de coups limités.\n"
-                + "- Règle 3: More rules as needed.";
+                + "- Règle 2: Tu as un nombre de coups limités.";
         JOptionPane.showMessageDialog(this, rulesText, "Mode Libre Règles", JOptionPane.INFORMATION_MESSAGE);
     }
     private void ReglesAventurePopup() {
-        String rulesText = "Règles spéciales Mode Aventure:\n"
+        String rulesText = "Règles spéciales Mode Aventure:\n\n"
                 + "- Règle 1: Tu ne peux pas te déplacer sur une case grise.\n"
-                + "- Règle 2: Tu n'as pas un nombre de coups limités.\n"
-                + "- Règle 3: Si tu es bloqué cliques sur reset ou abandonne.";
+                + "- Règle 2: Tu as un nombre de coups illimté.\n"
+                + "- Règle 3: Si tu es bloqué clique sur reset ou abandonne.";
         JOptionPane.showMessageDialog(this, rulesText, "Mode Libre Règles", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -79,6 +78,8 @@ public class Intro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(538, 440));
+        setPreferredSize(new java.awt.Dimension(538, 440));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -89,7 +90,7 @@ public class Intro extends javax.swing.JFrame {
                 LibreActionPerformed(evt);
             }
         });
-        jPanel1.add(Libre, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, 120, 40));
+        jPanel1.add(Libre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 510, 120, 40));
 
         Aventure.setText("Mode Aventure");
         Aventure.addActionListener(new java.awt.event.ActionListener() {
@@ -97,44 +98,44 @@ public class Intro extends javax.swing.JFrame {
                 AventureActionPerformed(evt);
             }
         });
-        jPanel1.add(Aventure, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 510, 120, 40));
+        jPanel1.add(Aventure, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, 120, 40));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText(" et d'une case dans une direction perpendiculaire");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, -1, 30));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, -1, 30));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Règles communes aux 2 modes :      ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 400, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 400, 30));
         jLabel2.getAccessibleContext().setAccessibleDescription("");
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText(" - Le cavalier avance de 2 cases dans une direction,");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText(" - Lorsque le cavalier atterrit sur une case allumée, il l'éteint.");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 426, 380, 60));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 380, 60));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Bienvenue dans la Chevauchée Fantastique !");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lachevaucheefantastique/noir.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 420, 180));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 420, 180));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lachevaucheefantastique/Image.jpg"))); // NOI18N
         jLabel5.setPreferredSize(new java.awt.Dimension(600, 500));
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, -30, 690, 860));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -30, 690, 860));
 
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, -1, -1));

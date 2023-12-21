@@ -48,23 +48,22 @@ public class NiveauBonusgraph extends JFrame {
         }
 
         // Nouvelle configuration de cases allumées - LVL Bonus
-        etatsCases[3][0] = 1; // Violet
-        etatsCases[4][0] = 1; // Violet
+        etatsCases[0][3] = 2; // Violet
+        etatsCases[5][4] = 2; // Violet
         etatsCases[1][1] = 2; // Violet
-        etatsCases[3][1] = 2; // Violet
-        etatsCases[6][1] = 3; // Rouge
-        etatsCases[1][2] = 1; // Rouge
-        etatsCases[3][1] = 1; // Rouge
-        etatsCases[4][1] = 1; // Violet
-        etatsCases[5][1] = 1; // Rouge
-        etatsCases[0][3] = 1; // Rouge
-        etatsCases[2][3] = 2; // Rouge
-        etatsCases[4][3] = 3; // Rouge
-        etatsCases[5][3] = 1; // Rouge
-        etatsCases[2][4] = 4; // Rouge
-        etatsCases[4][4] = 1; // Rouge
-        etatsCases[6][4] = 1; // Rouge
-        etatsCases[4][5] = 1; // Rouge
+        etatsCases[1][3] = 2; // Violet
+        etatsCases[2][1] = 1; // Rouge
+        etatsCases[1][3] = 1; // Rouge
+        etatsCases[1][4] = 2; // Violet
+        etatsCases[1][5] = 2; // Rouge
+        etatsCases[2][2] = 1; // Rouge
+        etatsCases[3][0] = 2; // Rouge
+        etatsCases[3][2] = 1; // Rouge
+        etatsCases[3][4] = 4; // Rouge
+        etatsCases[2][1] = 2; // Rouge
+        etatsCases[4][2] = 4; // Rouge
+        etatsCases[4][4] = 2; // Rouge
+        etatsCases[6][3] = 2; // Rouge
 
         miseAJourCouleurCases();
 
@@ -75,8 +74,8 @@ public class NiveauBonusgraph extends JFrame {
     }
 
     private void miseAJourCouleurCases() {
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
                 switch (etatsCases[i][j]) {
                     case 0:
                         boutons[i][j].setBackground(Color.GRAY);
@@ -123,7 +122,7 @@ public class NiveauBonusgraph extends JFrame {
 
         if (toutEteint) {
             setVisible(false);
-            new FenetreVictoire5().setVisible(true);
+            new FenetreVictoireBonus().setVisible(true);
         }
 
     }
