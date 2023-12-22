@@ -36,7 +36,7 @@ public class Intro extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent e) {
                 ReglesLibrePopup();
                 setVisible(false);
-                new Modelibregraph();
+                new ModeLibregraph();
 
             }
         });
@@ -45,7 +45,7 @@ public class Intro extends javax.swing.JFrame {
     private void ReglesLibrePopup() {
         String rulesText = "Règles spéciales Mode Libre:\n\n"
                 + "- Règle 1: Tu peux te déplacer sur les cases grises.\n"
-                + "- Règle 2: Tu as un nombre de coups limités.";
+                + "- Règle 2: Tu as seulement 10 coups pour éteindre 4 cases.";
         JOptionPane.showMessageDialog(this, rulesText, "Mode Libre Règles", JOptionPane.INFORMATION_MESSAGE);
     }
     private void ReglesAventurePopup() {
