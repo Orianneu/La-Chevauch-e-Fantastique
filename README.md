@@ -1,6 +1,8 @@
 # La-Chevauch-e-Fantastique
-Projet CPO 2A - La Chevauchée Fantastique
-La Chevauchée Fantastique
+Projet CPO 2A - La Chevauchée Fantastique --- Fromont Léa,
+Ifakiren Salma,
+Guesdon Orianne
+
 
 Description du Projet
 
